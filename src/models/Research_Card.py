@@ -5,7 +5,7 @@ from models.Card import Card
 
 class Research_Card(Card):
 	def __init__(self):
-		pass
+		super(Minion_Card, self).__init__()
 
 	def effect(self, ):
 		pass

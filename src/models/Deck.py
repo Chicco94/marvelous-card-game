@@ -6,7 +6,7 @@ from models.Research_Card import Research_Card
 
 class Deck:
 	def __init__(self):
-		self.list_of_cards = None
+		self.list_of_cards = [Card() for card in range(25)]
 		self.card_back = None
 
 	def is_empty(self, ):
@@ -15,3 +15,5 @@ class Deck:
 	def shuffle(self, ):
 		pass
 
+	def draw(self):
+		pass

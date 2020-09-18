@@ -5,16 +5,17 @@ from models.Deck import Deck
 
 class Player:
 	def __init__(self):
-		self.deck = None
-		self.hero = None
-		self.Health = None
-		self.Vault = None
+		self.deck = Deck()
+		self.hero = Hero()
+		self.health = 20
+		self.vault = 0
 
 	def die(self, ):
 		pass
 
-	def start_of_turn(self, ):
-		pass
+	def start_of_turn(self):
+		self.deck.draw()
+		self.vault += 3
 
 	def end_of_turn(self, ):
 		pass

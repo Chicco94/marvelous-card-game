@@ -5,11 +5,13 @@ from models.Card import Card
 
 class Minion_Card(Card):
 	def __init__(self):
-		self.Health = None
-		self.Attack = None
-		self.Armor = None
+		super(Minion_Card, self).__init__()
+		self.health = 0
+		self.attack = 0
+		self.armor = 0
+		self.range = 0
 
-	def attack(self, ):
+	def attack_entity(self):
 		pass
 
 	def die(self, ):

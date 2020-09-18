@@ -1,16 +1,17 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
+from models.Entity import Entity, pygame
 
-from Minion_Card import Minion_Card
-from Research_Card import Research_Card
-
-class Card(Minion_Card, Research_Card):
+class Card(Entity):
 	def __init__(self):
+		super(Card, self).__init__()
 		self.cost = None
 
-	def play(self, ):
+
+	def play(self):
 		pass
 
-	def is_playable(self, ):
+
+	def is_playable(self):
 		pass
 
