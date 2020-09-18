@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
+from models.Hero import Hero
+from models.Deck import Deck
 
 class Player:
 	def __init__(self):

@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
+from models.Board import Board
 
 class Game:
 	def __init__(self):
