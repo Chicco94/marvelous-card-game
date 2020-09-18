@@ -1,10 +1,10 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from Minion Card import Minion Card
-from Research Card import Research Card
+from Minion_Card import Minion_Card
+from Research_Card import Research_Card
 
-class Card(Minion Card, Research Card):
+class Card(Minion_Card, Research_Card):
 	def __init__(self):
 		self.cost = None
 

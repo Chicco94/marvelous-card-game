@@ -3,7 +3,7 @@
 
 class Field:
 	def __init__(self):
-		self.minion_slots[] = None
+		self.minion_slots = None
 		self.Attribute1 = None
 		self.player = None
 

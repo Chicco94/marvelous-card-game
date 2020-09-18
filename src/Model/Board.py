@@ -3,7 +3,7 @@
 
 class Board:
 	def __init__(self):
-		self.fields[] = None
+		self.fields = None
 
 	def render(self, ):
 		pass

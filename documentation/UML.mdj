@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Main",
+					"name": "classes",
 					"defaultDiagram": true,
 					"ownedViews": [
 						{
@@ -288,7 +288,7 @@
 											"top": 311,
 											"width": 88.53076171875,
 											"height": 13,
-											"text": "Minion Card"
+											"text": "Minion_Card"
 										},
 										{
 											"_type": "LabelView",
@@ -581,9 +581,9 @@
 											"font": "Arial;13;1",
 											"left": 581,
 											"top": 311,
-											"width": 91.76806640625,
+											"width": 95.38623046875,
 											"height": 13,
-											"text": "Research Card"
+											"text": "Research_Card"
 										},
 										{
 											"_type": "LabelView",
@@ -616,7 +616,7 @@
 									"font": "Arial;13;0",
 									"left": 576,
 									"top": 304,
-									"width": 101.76806640625,
+									"width": 105.38623046875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF0n80Tw7xzmWQ="
@@ -643,7 +643,7 @@
 									"font": "Arial;13;0",
 									"left": 576,
 									"top": 329,
-									"width": 101.76806640625,
+									"width": 105.38623046875,
 									"height": 10
 								},
 								{
@@ -668,7 +668,7 @@
 											"font": "Arial;13;0",
 											"left": 581,
 											"top": 344,
-											"width": 91.76806640625,
+											"width": 95.38623046875,
 											"height": 13,
 											"text": "+effect()",
 											"horizontalAlignment": 0
@@ -677,7 +677,7 @@
 									"font": "Arial;13;0",
 									"left": 576,
 									"top": 339,
-									"width": 101.76806640625,
+									"width": 105.38623046875,
 									"height": 23
 								},
 								{
@@ -717,7 +717,7 @@
 							"containerChangeable": true,
 							"left": 576,
 							"top": 304,
-							"width": 101.76806640625,
+							"width": 105.38623046875,
 							"height": 71,
 							"nameCompartment": {
 								"$ref": "AAAAAAF0n80Tw7xy/lE="
@@ -2491,7 +2491,7 @@
 								"$ref": "AAAAAAF0n80Tw7xxyN4="
 							},
 							"lineStyle": 1,
-							"points": "608:303;555:199",
+							"points": "609:303;555:199",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF0n9Q0o8B1b84="
@@ -2615,7 +2615,7 @@
 											"top": 558,
 											"width": 87.07080078125,
 											"height": 13,
-											"text": "+minion_slots[]",
+											"text": "+minion_slots",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2843,7 +2843,7 @@
 											"top": 670,
 											"width": 87,
 											"height": 13,
-											"text": "+fields[]",
+											"text": "+fields",
 											"horizontalAlignment": 0
 										}
 									],
@@ -4355,7 +4355,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Minion Card",
+					"name": "Minion_Card",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -4438,7 +4438,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Research Card",
+					"name": "Research_Card",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -4791,7 +4791,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0n9lJssHz7HE="
 							},
-							"name": "minion_slots[]"
+							"name": "minion_slots"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4856,7 +4856,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0n9pHpMMOsnQ="
 							},
-							"name": "fields[]"
+							"name": "fields"
 						}
 					],
 					"operations": [
@@ -4967,7 +4967,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF0n+Ph9NhH6Qw="
 					},
-					"name": "Turn actions flow",
+					"name": "turn actions flow",
 					"ownedViews": [
 						{
 							"_type": "FCProcessView",

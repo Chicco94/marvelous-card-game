@@ -3,7 +3,7 @@
 
 from Card import Card
 
-class Research Card(Card):
+class Research_Card(Card):
 	def __init__(self):
 		pass
 

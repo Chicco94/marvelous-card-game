@@ -3,7 +3,7 @@
 
 from Card import Card
 
-class Minion Card(Card):
+class Minion_Card(Card):
 	def __init__(self):
 		self.Health = None
 		self.Attack = None
