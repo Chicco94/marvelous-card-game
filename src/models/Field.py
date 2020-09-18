@@ -1,37 +1,24 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 from models.Player import Player
-from models.Minion_Card import Minion_Card
-from models.Card import Card, pygame
+from models.Place import Place, pygame
+from models.Card import Card
 
 class Field:
 	def __init__(self, side):
 		# two line of combat
-		self.first_line = [None for x in range(3)]
-		self.second_line = [None for x in range(5)]
+		if side is 0:
+			self.minion_slots = [Place((360,310)),Place((460,310)),Place((560,310)),Place((260,210)),Place((360,210)),Place((460,210)),Place((560,210)),Place((660,210))]
+		else:
+			self.minion_slots = [Place((360,610)),Place((460,610)),Place((560,610)),Place((260,710)),Place((360,710)),Place((460,710)),Place((560,710)),Place((660,710))]
 		self.player = Player(side)
-		self.hand = [Minion_Card() for x in range(5)]
+		self.hand = [Card() for x in range(5)]
 		self.side = side
 
 	def render(self, board):
-		# posiziono la prima linea
-		if self.side == 1:
-			offsets = [(380,310),(480,310),(580,310)]
-		else:
-			offsets = [(380,610),(480,610),(580,610)]
-		for minion in self.first_line:
-			if minion:
-				minion.render(board, offsets[self.first_line.index(minion)])
-
-		# posiziono la seconda linea
-		if self.side == 1:
-			offsets = [(280,210),(380,210),(480,210),(580,210),(680,210)]
-		else:
-			offsets = [(280,710),(380,710),(480,710),(580,710),(680,710)]
-
-		for minion in self.second_line:
-			if minion:
-				minion.render(board, offsets[self.second_line.index(minion)])
+		# posiziono i minion
+		for place in self.minion_slots:
+			place.render(board)
 
 		# posiziono la mano del giocatore
 		offsets = [(700,100), (300,900)]
@@ -43,17 +30,22 @@ class Field:
 		self.player.hero.render(board)
 
 	def get_clicked_entity(self,pos):
-		for minion in self.first_line:
-			if minion and minion.is_clicked(pos):
-				return minion
-		for minion in self.second_line:
-			if minion and minion.is_clicked(pos):
-				return minion
+		for place in self.minion_slots:
+			if place and place.is_clicked(pos):
+				return place
 		for card in self.hand:
 			if card and card.is_clicked(pos):
 				return card
 		if self.player.hero.is_clicked(pos):
 			return self.player.hero
 		
+	def is_valid_place(self, entity):
+		''' find if an entity is moved over an enmpty place,
+			if so, returns it
+		'''
+		for place in self.minion_slots:
+			if place.is_free() and entity.is_over(place):
+				return place
+		return None
 
 

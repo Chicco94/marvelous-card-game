@@ -31,10 +31,15 @@ class Board:
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				pos = event.pos
 				entity = self.fields[1].get_clicked_entity(pos)
-				if entity:
+				if entity and entity.can_be_moved:
 					entity.click = True
 					self.clicked_entity = entity
 			if event.type == pygame.MOUSEBUTTONUP:
+				if self.clicked_entity.can_be_placed:
+					place = self.fields[1].is_valid_place(self.clicked_entity)
+					if place:
+						place.set_entity(self.clicked_entity)
+						self.fields[1].hand.remove(self.clicked_entity)
 				self.clicked_entity.click = False
 
 

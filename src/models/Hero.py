@@ -8,6 +8,10 @@ class Hero(Entity):
 		offsets = [(500,100), (500,900)]
 		self.rect.center = offsets[side]
 
+		self.can_be_played = False
+		self.can_be_moved = False
+		self.can_be_placed = False
+
 	def hero_power(self, ):
 		pass
 
