@@ -4,7 +4,7 @@ from models.Field import Field, pygame
 
 class Board:
 	def __init__(self, screen_width  = 800, screen_height = 600):
-		self.fields = [Field(),Field()]
+		self.fields = [Field(0),Field(1)]
 		
 		pygame.init()
 		
@@ -18,8 +18,8 @@ class Board:
 	def render(self):
 		self.screen.fill((255,255,255))
 		self.screen.blit(pygame.image.load("resources/background.png"),(0,0))
-		self.fields[0].render(self.screen,0)
-		self.fields[1].render(self.screen,1)
+		self.fields[0].render(self.screen)
+		self.fields[1].render(self.screen)
 
 
 	def handle_event(self):
@@ -30,9 +30,10 @@ class Board:
 			# player interactions
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				pos = event.pos
-				entity = self.fields[0].get_clicked_entity(pos)
-				entity.click = True
-				self.clicked_entity = entity
+				entity = self.fields[1].get_clicked_entity(pos)
+				if entity:
+					entity.click = True
+					self.clicked_entity = entity
 			if event.type == pygame.MOUSEBUTTONUP:
 				self.clicked_entity.click = False
 

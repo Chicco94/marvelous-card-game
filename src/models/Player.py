@@ -4,9 +4,9 @@ from models.Hero import Hero
 from models.Deck import Deck
 
 class Player:
-	def __init__(self):
+	def __init__(self, side):
 		self.deck = Deck()
-		self.hero = Hero()
+		self.hero = Hero(side)
 		self.health = 20
 		self.vault = 0
 

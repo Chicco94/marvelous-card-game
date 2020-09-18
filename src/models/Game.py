@@ -3,8 +3,8 @@
 from models.Board import Board,pygame
 
 class Game:
-	def __init__(self, screen_width  = 800, screen_height = 600):
-		self.board = Board(800,600)
+	def __init__(self, screen_width  = 1000, screen_height = 1000):
+		self.board = Board(screen_width,screen_height)
 
 
 	def turn(self, ):

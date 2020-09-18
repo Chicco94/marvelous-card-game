@@ -8,8 +8,9 @@ class Card(Entity):
 		self.cost = None
 
 
-	def play(self):
-		pass
+	def play(self, pos):
+		self.image_size = 80
+		self.rect.center = pygame.Rect((pos[0],pos[1],self.image_size,self.image_size))
 
 
 	def is_playable(self):
