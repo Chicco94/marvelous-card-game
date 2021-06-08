@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 from models.Hero import Hero
 from models.Deck import Deck
-from models.Card import Card
+from models.Card import Card, pygame
 
 class Player:
 	def __init__(self, side):
@@ -10,7 +10,9 @@ class Player:
 		self.hero = Hero(side)
 		self.health = 20
 		self.vault = 0
-		self.hand = [Card() for x in range(5)]
+		card_image_1 = pygame.image.load("resources/spear.png")
+		card_image_2 = pygame.image.load("resources/sword.png")
+		self.hand = [Card(card_image_1 if x%2 else card_image_2) for x in range(5)]
 		self.side = side
 
 	def die(self, ):

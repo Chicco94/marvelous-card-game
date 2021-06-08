@@ -3,9 +3,10 @@
 from models.Entity import Entity, pygame
 
 class Card(Entity):
-	def __init__(self):
+	def __init__(self, image):
 		super(Card, self).__init__()
 		self.cost = None
+		self.image = image
 
 
 	def play(self, pos):

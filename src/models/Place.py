@@ -7,7 +7,7 @@ class Place(Entity):
 		super(Place, self).__init__()
 		# two line of combat
 		self.entity = None
-		self.image = pygame.image.load("resources/place.png")
+		self.clear_image()
 		self.image_size = 80
 		self.rect = pygame.Rect((pos[0],pos[1],self.image_size,self.image_size))
 
@@ -22,3 +22,10 @@ class Place(Entity):
 	def set_entity(self,entity):
 		self.entity = entity
 		self.image = pygame.transform.scale(entity.image,(80,80))
+	
+	def remove_entity(self):
+		self.entity = None
+		self.clear_image()
+
+	def mouse_over(self,pos):
+		return self.rect.contains(pygame.Rect(pos[0],pos[1],0,0))

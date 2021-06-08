@@ -31,14 +31,20 @@ class Board:
 	def get_clicked_entity(self,pos):
 		for field in self.fields:
 			for place in field.minion_slots:
-				if place and place.is_clicked(pos):
-					return place
+				if place and place.is_clicked(pos) and place.entity:
+					print("ho cliccato una casella")
+					self.old_place = place
+					self.movement_started_from_board = True
+					self.movement_started_from_hand = False
+					return place.entity
 		for card in self.player.hand:
-			print("ho cliccato una carta1",pos , card.is_clicked(pos))
-			print(card.rect.center)
 			if card and card.is_clicked(pos):
+				print("ho cliccato una carta")
+				self.movement_started_from_board = False
+				self.movement_started_from_hand = True
 				return card
 		if self.player.hero.is_clicked(pos):
+			print("ho cliccato un eroe")
 			return self.player.hero
 
 
@@ -55,14 +61,17 @@ class Board:
 					entity.click = True
 					self.clicked_entity = entity
 			if event.type == pygame.MOUSEBUTTONUP:
-				print(self.clicked_entity)
 				if self.clicked_entity and self.clicked_entity.can_be_placed:
+					print("entity can be placed")
 					for field in self.fields:
-						place = field.is_valid_place(self.clicked_entity)
-						print(field.is_valid_place(self.clicked_entity))
+						place = field.is_valid_place(event.pos)
 						if place:
 							place.set_entity(self.clicked_entity)
-							self.player.hand.remove(self.clicked_entity)
+							print("entity placed")
+							if self.movement_started_from_hand:
+								self.player.hand.remove(self.clicked_entity)
+							if self.movement_started_from_board:
+								self.old_place.remove_entity()
 							break
 					self.clicked_entity.click = False
 

@@ -5,7 +5,7 @@ import pygame
 class Entity():
 	def __init__(self):
 		# render part
-		self.image = pygame.image.load("resources/sPear.png")
+		self.clear_image()
 		self.image_size = 200
 		self.rect = pygame.Rect((0,0,self.image_size,self.image_size))
 
@@ -25,6 +25,9 @@ class Entity():
 		elif offset:
 			self.rect.center = (offset[0],offset[1])
 		board.blit(self.image,self.rect)
+	
+	def clear_image(self):
+		self.image = pygame.image.load("resources/empty.png")
 
 	def is_clicked(self,pos):
 		return self.rect.collidepoint(pos)

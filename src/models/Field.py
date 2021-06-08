@@ -13,12 +13,12 @@ class Field:
 		for place in self.minion_slots:
 			place.render(board)
 
-	def is_valid_place(self, entity):
+	def is_valid_place(self, pos):
 		''' find if an entity is moved over an enmpty place,
 			if so, returns it
 		'''
 		for place in self.minion_slots:
-			if place.is_free() and entity.is_over(place):
+			if place.is_free() and place.mouse_over(pos):
 				return place
 		return None
 
