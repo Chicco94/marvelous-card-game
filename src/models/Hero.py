@@ -5,8 +5,10 @@ class Hero(Entity):
 	def __init__(self, side):
 		super(Hero, self).__init__()
 		self.name = None
-		offsets = [(500,100), (500,900)]
+		offsets = [(20,20), (980,980)]
 		self.rect.center = offsets[side]
+
+		self.player = side
 
 		self.can_be_played = False
 		self.can_be_moved = False
