@@ -10,23 +10,24 @@ class Player:
 		self.hero = Hero(side)
 		self.health = 20
 		self.vault = 0
-		card_image_1 = pygame.image.load("resources/spear.png")
-		card_image_2 = pygame.image.load("resources/sword.png")
-		self.hand = [Card(card_image_1 if x%2 else card_image_2) for x in range(5)]
+		self.hand = []
 		self.side = side
 
 	def die(self, ):
 		pass
 
 	def start_of_turn(self):
-		self.deck.draw()
+		self.hand.append(self.deck.draw())
 		self.vault += 3
 
 	def end_of_turn(self, ):
 		pass
 
-	def is_alive(self, ):
-		pass
+	def is_alive(self) -> bool:
+		return self.health == 0
+
+	def draw(self) -> None:
+		self.hand.append(self.deck.draw())
 
 	def render(self, board):
 		self.hero.render(board)

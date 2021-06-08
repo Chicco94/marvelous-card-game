@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 from models.Field import Field, pygame
 from models.Player import Player
+from enum import Enum
 
 class Board:
 	def __init__(self, screen_width  = 800, screen_height = 600):
@@ -13,6 +14,9 @@ class Board:
 		pygame.display.set_caption("Marvelous card game")
 		pygame.display.set_icon(pygame.image.load("resources/logo.jpg"))
 		self.screen = pygame.display.set_mode((screen_width,screen_height))
+
+		self.end_turn_button = pygame.Rect((0,900,100,100))
+		self.turn_end_clicked = False
 
 		self.clicked_entity = None
 		self.player = Player(1)
@@ -29,6 +33,10 @@ class Board:
 		self.opponent.render(self.screen)
 
 	def get_clicked_entity(self,pos):
+		print(pos)
+		if self.end_turn_button.contains(pygame.Rect(pos[0],pos[1],0,0)):
+			print("ho cliccato fine turno")
+			self.turn_end_clicked = True
 		for field in self.fields:
 			for place in field.minion_slots:
 				if place and place.is_clicked(pos) and place.entity:
@@ -74,6 +82,12 @@ class Board:
 								self.old_place.remove_entity()
 							break
 					self.clicked_entity.click = False
+				elif self.turn_end_clicked:
+					return True
+					self.turn_end_clicked = False
 
 
 
+class possibleActions(Enum):
+	END_TURN = 1
+	ENTITY_MOVED = 2
